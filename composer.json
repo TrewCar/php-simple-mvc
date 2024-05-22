@@ -1,5 +1,5 @@
 {
-    "name": "rmk/simple-mvc",
+    "name": "trewcar/php-simple-mvc",
     "autoload": {
         "psr-4": {
             "Rmk\\SimpleMvc\\": "src/",
