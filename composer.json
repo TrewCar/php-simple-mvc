@@ -1,0 +1,21 @@
+{
+    "name": "rmk/simple-mvc",
+    "autoload": {
+        "psr-4": {
+            "Rmk\\SimpleMvc\\": "src/",
+            "App\\": "app/",
+            "Core\\": "core/",
+            "Config\\": "config/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Trew-Car",
+            "email": "fasdaser312.new@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "robmorgan/phinx": "^0.14.0"
+    }
+}

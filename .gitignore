@@ -1,0 +1,13 @@
+# Ignore vendor directory (contains Composer dependencies)
+/vendor/
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+# Ignore logs and temporary files
+/logs/
+/tmp/
+
+# Ignore config 
+.env
