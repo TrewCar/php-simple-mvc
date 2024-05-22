@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . "./../vendor/autoload.php";
 
 // Загрузка кастомных методов
@@ -16,7 +17,7 @@ $router = new Core\Router();
 // Определение маршрутов
 $router->add('', HomeController::class, 'index');
 $router->add('about', HomeController::class, 'about');
-$router->add('api/user/{id}', UserController::class, 'getData');
+$router->add('api/user/{id}', UserController::class, 'getData', [\App\Middleware\HardIpLockMiddleware::class]);
 
 
 // Получение URI
