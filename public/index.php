@@ -14,9 +14,9 @@ use Dotenv\Dotenv;
 $router = new Core\Router();
 
 // Определение маршрутов
-$router->add('', 'HomeController', 'index');
-$router->add('about', 'HomeController', 'about');
-$router->add('api/user/{id}', 'UserController', 'getData');
+$router->add('', HomeController::class, 'index');
+$router->add('about', HomeController::class, 'about');
+$router->add('api/user/{id}', UserController::class, 'getData');
 
 
 // Получение URI
