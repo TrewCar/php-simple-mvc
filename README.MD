@@ -7,7 +7,7 @@
 1. Склонируйте репозиторий на свой компьютер:
 
     ```bash
-    git clone <URL репозитория>
+    git clone https://github.com/TrewCar/php-simple-mvc.git
     ```
 
 2. Установите зависимости проекта с помощью Composer:
