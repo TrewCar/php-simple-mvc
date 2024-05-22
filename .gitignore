@@ -4,6 +4,7 @@
 # Ignore IDE files
 .idea/
 .vscode/
+.vs
 
 # Ignore logs and temporary files
 /logs/

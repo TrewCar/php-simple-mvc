@@ -1,28 +1,38 @@
 <?php namespace Core\Database;
 
-use Exception;
-use mysqli;
-use mysqli_result;
+use PDO;
+use PDOException;
 
-class Database{
+class Database
+{
     protected $connection;
 
     public function __construct()
     {
-        $config = require __DIR__ . "./../../config/database.php";
-        // Создание подключения к базе данных
-        $this->connection = new mysqli($config['host'], $config['username'], $config['password'], $config['database'], $config['port']);
+        $this->connect();
+    }
 
-        // Проверка на ошибки подключения
-        if ($this->connection->connect_error) {
-            throw new Exception("Database connection failed: " . $this->connection->connect_error);
+    public function connect()
+    {
+        $config = require __DIR__ . "./../../config/database.php";
+        $dsn = "{$config['driver']}:host={$config['host']};dbname={$config['database']};port={$config['port']}";
+
+        try {
+            $this->connection = new PDO($dsn, $config['username'], $config['password']);
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            throw new PDOException("Database connection failed: " . $e->getMessage());
         }
     }
 
-    public function query(string $query){
-        return $this->connection->query($query)->fetch_all(MYSQLI_ASSOC);
+    public function query(string $query)
+    {
+        $stmt = $this->connection->query($query);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function queryNotExicute(string $query){
-        return $this->connection->query($query);
+
+    public function execute(string $query)
+    {
+        return $this->connection->exec($query);
     }
 }

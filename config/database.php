@@ -6,4 +6,5 @@ return [
     'password' => $_ENV['DB_PASSWORD'],
     'database' => $_ENV['DB_DATABASE'],
     'port' => $_ENV['DB_PORT'],
+    'driver' => $_ENV['DB_DRIVER'],
 ];
