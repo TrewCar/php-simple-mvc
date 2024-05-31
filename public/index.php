@@ -5,6 +5,7 @@ require_once __DIR__ . "./../vendor/autoload.php";
 // Загрузка кастомных методов
 require_once __DIR__ . "./../src/single_method/loader.php";
 
+use App\Controllers\Error\ErrorController;
 use Dotenv\Dotenv;
 
 // Load environment variables from .env file
@@ -13,6 +14,8 @@ use Dotenv\Dotenv;
 
 
 $router = new Core\Router();
+
+$router->setErrorController(new ErrorController());
 
 // Определение маршрутов
 $router->add('', HomeController::class, 'index');

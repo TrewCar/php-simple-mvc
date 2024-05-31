@@ -3,7 +3,7 @@ use Core\Controller\BaseController;
 use App\Models\UserModel;
 
 class UserController extends BaseController{
-    public function getData($id)
+    public function getData($id) : void
     {
         if ($id != ((int) $id)) {
             $this->renderJson(['error' => 'Invalid user ID']);
